@@ -1,1 +1,10 @@
-<p>Celebrities page</p>
+<h2>Celebrities page</h2>
+<ul>
+{{!-- Use an hbs #each loop to display tags with each celebrity's name --}}
+{{#each results}} {{!-- aqui una lista para cada nombre de artista --}}
+<li>{{this.name}}</li>
+<li>{{this.occupation}}</li>
+<li>{{this.catchPhrase}}</li>
+{{/each}}
+</ul>
+
