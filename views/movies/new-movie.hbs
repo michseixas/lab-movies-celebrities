@@ -1,0 +1,33 @@
+<h2>Add a new movie</h2>
+
+ <form action="/movies/create" method="POST">
+
+    <p>
+        <label>Title:</label>
+        <input type="text" name="title" />
+    </p>
+
+    <p>
+        <label>Genre:</label>
+        <input type="text" name="genre" /> 
+    </p>
+
+  <p>
+        <label>Plot:</label>
+        <input type="text" name="plot" />
+  </p>
+   <p>
+        <label>Cast:</label>
+        <input type="text" name="cast" />
+  </p>
+
+  <label for="dog-names">Choose a celebrity:</label>
+<select name="dog-names" id="dog-names">
+    <option value="rigatoni">Rigatoni</option>
+  <option value="dave">Dave</option>
+  <option value="pumpernickel">Pumpernickel</option>
+  <option value="reeses">Reeses</option>
+</select>
+
+  <button type="submit">Add celebrity</button>
+</form>

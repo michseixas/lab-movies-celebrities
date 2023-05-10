@@ -14,6 +14,6 @@ const movieSchema = new Schema (
  //lo tendra en cuenta una BD mientras no sea un modelo.
  //Para que sea un modelo, se hace así:
 
-const Movie = mongoose.model("Movie", celebritySchema); //como quiero que la base de datos se refiera("Celebrities"), y como quiero que sea el schema("celebritySchema").
+const Movie = mongoose.model("Movie", movieSchema); //como quiero que la base de datos se refiera("Celebrities"), y como quiero que sea el schema("celebritySchema").
 
 module.exports = Movie; 
