@@ -1,0 +1,32 @@
+<h2>Edit movie</h2>
+
+ <form action="/movies/{{movieToEdit._id}}" method="POST">
+
+    <p>
+        <label>Title:</label>
+        <input type="text" name="title" value="{{movieToEdit.title }}"> 
+    </p>
+
+    <p>
+        <label>Genre:</label>
+        <input type="text" name="genre" value="{{movieToEdit.genre }}"/> 
+    </p>
+
+  <p>
+        <label>Plot:</label>
+        <input type="text" name="plot" value="{{movieToEdit.plot }}"/>
+  </p>
+  <label for="celebrity-names">Choose a celebrity:</label>
+<select name="cast" id="cast" multiple>
+{{!-- Use an hbs #each loop to display tags with each celebrity's name --}}
+{{#each celebrities}} {{!-- aqui una lista para cada nombre de artista --}}
+ <option value="{{this._id}}">{{this.name}}</option> 
+ {{!-- the information that should be transmitted (value) is the _id we will use for the cast attribute of the movie. --}}
+{{/each}}
+
+
+</select>
+
+  <button type="submit">Edit movie</button>
+</form>
+

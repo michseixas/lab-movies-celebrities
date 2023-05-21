@@ -16,18 +16,16 @@
         <label>Plot:</label>
         <input type="text" name="plot" />
   </p>
-   <p>
-        <label>Cast:</label>
-        <input type="text" name="cast" />
-  </p>
+  <label for="celebrity-names">Choose a celebrity:</label>
+<select name="cast" id="cast" multiple>
+{{!-- Use an hbs #each loop to display tags with each celebrity's name --}}
+{{#each results}} {{!-- aqui una lista para cada nombre de artista --}}
+ <option value="{{this._id}}">{{this.name}}</option> 
+ {{!-- the information that should be transmitted (value) is the _id we will use for the cast attribute of the movie. --}}
+{{/each}}
 
-  <label for="dog-names">Choose a celebrity:</label>
-<select name="dog-names" id="dog-names">
-    <option value="rigatoni">Rigatoni</option>
-  <option value="dave">Dave</option>
-  <option value="pumpernickel">Pumpernickel</option>
-  <option value="reeses">Reeses</option>
+
 </select>
 
-  <button type="submit">Add celebrity</button>
+  <button type="submit">Add movie</button>
 </form>

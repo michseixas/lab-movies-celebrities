@@ -1,0 +1,8 @@
+<h2>Movies page</h2>
+<ul>
+{{!-- Use an hbs #each loop to display tags with each peli's name --}}
+{{#each results}} {{!-- aqui una lista para cada nombre de peli --}}
+<li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+{{/each}}
+</ul>
+

@@ -3,17 +3,20 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
-router.get("/celebrities/create", (req, res, next) => {
+
+//ROUTE CREATE CELEBRITY
+
+router.get("/celebrities/create", (req, res, next) => { //HERE YOU GET THE FORM
   res.render("./celebrities/new-celebrity");
 });
 
 router.post("/celebrities/create", (req, res, next) => {
-  console.log("req body pls", req.body);
-  const { name, occupation, catchPhrase } = req.body;
+  console.log("req body pls", req.body); // este console.log solo me muestra lo que hay en el body, que es lo que se cargó en el formulario
+  const { name, occupation, catchPhrase } = req.body; //destructuring según ES6
 
-  Celebrity.create({ name, occupation, catchPhrase })
+  Celebrity.create({ name, occupation, catchPhrase }) //CREATE A NEW CELEBRITY
     .then((response) => {
-      console.log("response create celebirty", response);
+      console.log("response create celebirty", response); // este console.log me muestra la respuesta ya desde la base de datos con todo y su ID
 
       res.redirect("/celebrities");
     })
@@ -27,14 +30,8 @@ router.post("/celebrities/create", (req, res, next) => {
 
 router.get("/celebrities", (req, res, next) => {
     Celebrity.find() //Used find() method on the Celebrity model to retrieve all the celebrities
-    .then((results) => {
-        const celebrityResults = {results} //transformo el array results en un objeto
-
-        console.log("resultado busqueda" , celebrityResults)
-        return celebrityResults //sin el return no plasma el resultado en la pagina celebrities
-    })
-    .then(results => { // el render tiene que ir dentro de un then, si no no funciona
-        res.render("celebrities/celebrities", results);
+    .then((results) => { // el render tiene que ir dentro de un then, si no no funciona
+        res.render("celebrities/celebrities", {results}); //transformo el array results en un objeto
     })
 
     .catch(err => next(err)) // If there's an error, catch it
